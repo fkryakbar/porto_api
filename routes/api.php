@@ -122,11 +122,11 @@ Route::post('/transaction/create/{porto_id}', function (Request $request, $porto
 
     $portofolio = Portofolio::find($porto_id);
     if (!$portofolio) {
-        return response()->json(['message' => 'Portofooli not found'], 404);
+        return response()->json(['message' => 'portofolio not found'], 404);
     }
     $transaction = Transaction::create([
         'user_id' => $user->id,
-        'portfolio_id' => $porto_id,
+        'portofolio_id' => $porto_id,
         'title' => $request->input('title'),
         'amount' => $request->input('amount'),
         'transaction_date' => $request->input('transaction_date')
